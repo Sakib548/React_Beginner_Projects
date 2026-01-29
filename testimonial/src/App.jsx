@@ -1,8 +1,11 @@
 import React from 'react'
 import "./styles.css"
+import Testimonial from './components/Testimonial'
 const App = () => {
   return (
-    <div>Apps</div>
+    <div>
+      <Testimonial/>
+    </div>
   )
 }
 

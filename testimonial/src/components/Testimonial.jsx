@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const Testimonial = () => {
 
+
     const [currentIndex,setCurrentIndex] = useState(0)
     const testimonials = [
     {
@@ -17,10 +18,30 @@ const Testimonial = () => {
       author: "Bob Johnson",
     },
   ];
+
+  const handlePrev = ()=>{
+    
+    setCurrentIndex((currentIndex+testimonials.length -1)%testimonials.length)
+  }
+
+  const handleNext = ()=>{
+    
+    setCurrentIndex((currentIndex+testimonials.length +1)%testimonials.length)
+  }
   return (
     <div className='testimonials'>
         <div className='testimonial-quote'>
               {testimonials[currentIndex].quote}
+        </div>
+
+         <div className='testimonial-author'>
+              - {testimonials[currentIndex].author}
+        </div>
+
+         <div className='testimonials-nav'>
+              <button onClick={handlePrev}>Prev</button>
+              <button onClick={handleNext}>Next</button>
+
         </div>
     </div>
   )
