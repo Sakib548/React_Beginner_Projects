@@ -18,8 +18,9 @@ const App = () => {
     setQuery(e.target.value);
   };
 
-  const filteredItems = products.filter((product) =>
-    product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase() !== -1),
+  const filteredItems = products.filter(
+    (product) =>
+      product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1,
   );
 
   //Radio Filter -----
@@ -30,7 +31,7 @@ const App = () => {
   };
 
   //-------Buttons Filter -----
-  const handleClick = (e) => selectedCategory(e.target.value);
+  const handleClick = (e) => setSelectedCategory(e.target.value);
 
   function filteredData(products, selected, query) {
     let filteredProducts = products;
@@ -71,8 +72,8 @@ const App = () => {
     <>
       <SideBar handleChange={handleChange} />
       <Navigation query={query} handleInputChange={handleInputChange} />
-      <Recommended />
-      <Products />
+      <Recommended handleClick={handleClick} />
+      <Products result={result} />
     </>
   );
 };
